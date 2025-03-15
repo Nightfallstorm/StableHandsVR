@@ -11,8 +11,7 @@ namespace hooks
 	struct MouseCoordsUpdateHook {
 		// Note: a_x and a_y are not capped due to our hook logic removing the cap code, reapply the cap here with our DPI modifications
 		static void thunk(MouseCoords* a_coords, float a_x, float a_y) {
-			logger::info("a_x before modification is {}", a_x);
-			
+		
 			// Apply DPI
 			auto DPI = Settings::GetSingleton()->tweaks.DPI;
 			auto lengthDiff = (a_coords->maxX / DPI) - a_coords->maxX;
